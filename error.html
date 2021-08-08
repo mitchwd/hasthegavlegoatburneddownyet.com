@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Deploy Version: 2018-12-12 02:17:50 +1030 -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Find out if the Gävle Goat is still standing!">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title>Has the Gävle Goat burned down yet? | Error</title>
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <script src="/javascripts/site.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/solid.js" integrity="sha384-Xgf/DMe1667bioB9X1UM5QX+EG6FolMT4K7G+6rqNZBSONbmPh/qZ62nBPfTx+xG" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/brands.js" integrity="sha384-S2C955KPLo8/zc2J7kJTG38hvFV+SnzXM6hwfEUhGHw5wPo6uXbnbjSJgw3clO4G" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/fontawesome.js" integrity="sha384-bNOdVeWbABef8Lh4uZ8c3lJXVlHdf8W5hh1OpJ4dGyqIEhMmcnJrosjQ36Kniaqm" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      // Setup
+        result = false; // "Has the Gävlebocken burned down yet?"
+        endDate = "18th"; // REMEMBER TO CHANGE THIS DATE!
+        startDate = "December 2nd";
+        year = "2018";
+
+      // Answers
+        yesAnswers = ["Yes.", "<em>Ja.</em><br />(Yes)", "Yes, sadly."];
+        noAnswers = ["No.", "<em>Nej.</em><br />(No)", "Not yet.", "Nope!", "It's still standing."];
+    </script>
+  </head>
+  <body class="bg-grey-lightest mx-auto text-center font-sans font-thin text-grey-darkest">
+    <div id="header" class="bg-red-light h-5"></div>
+
+    <div id="content" class="pt-10 w-4/5 mx-auto"><div class="text-2xl">
+  Oh dear.<br />
+  We've had a problem.
+</div>
+
+<div class="text-xl mt-10">
+  <a href="/" class="text-grey-darkest no-underline border-b border-grey-darkest hover:border-grey">Click here to go back home</a><br />
+  <img src="images/burnt_match.png" alt="Burnt match" class="w-48">
+</div>
+</div>
+
+    <div id="footer" class="text-xs pt-2">
+      Made with <span class="fas fa-heart"></span> by <a href="http://www.mitchwd.com" rel="noopener" class="text-grey-darkest no-underline hover:underline hover:text-red-light">@mitchwd.</a>
+    </div>
+
+    <div id="menu" class="pt-10">
+      <div class="text-lg font-bold">Menu</div>
+      <a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/error.html">Error</a>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    if (result === true) {
+      document.getElementById("answer").innerHTML = yesAnswers[Math.floor(Math.random() * yesAnswers.length)];
+      document.getElementById("notice").innerHTML = ("Rest In Peace, Gävlebocken<br />" + startDate + " &mdash; " + endDate + ", " + year);
+    } else {
+      document.getElementById("answer").innerHTML = noAnswers[Math.floor(Math.random() * noAnswers.length)];
+    }
+  </script>
+</html>
