@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en" dir="ltr">
   <head>
-    <!-- Deploy Version: 2018-12-12 02:17:50 +1030 -->
+    <!-- Deploy Version: 2021-12-17 -->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Find out if the Gävle Goat is still standing!">
     <!-- Use the title from a page's frontmatter if it has one -->
-    <title>Has the Gävle Goat burned down yet? | </title>
+    <title>Has the Gävle Goat burned down yet?</title>
     <link href="/stylesheets/site.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <script src="/javascripts/site.js"></script>
@@ -17,10 +17,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/fontawesome.js" integrity="sha384-bNOdVeWbABef8Lh4uZ8c3lJXVlHdf8W5hh1OpJ4dGyqIEhMmcnJrosjQ36Kniaqm" crossorigin="anonymous"></script>
     <script type="text/javascript">
       // Setup
-        result = false; // "Has the Gävlebocken burned down yet?"
-        endDate = "18th"; // REMEMBER TO CHANGE THIS DATE!
-        startDate = "December 2nd";
-        year = "2018";
+        result = true; // "Has the Gävlebocken burned down yet?"
+        endDate = "December 17th"; // REMEMBER TO CHANGE THIS DATE!
+        startDate = "November 26th";
+        year = "2021";
 
       // Answers
         yesAnswers = ["Yes.", "<em>Ja.</em><br />(Yes)", "Yes, sadly."];
@@ -47,17 +47,12 @@
     <div id="footer" class="text-xs pt-2">
       Made with <span class="fas fa-heart"></span> by <a href="http://www.mitchwd.com" rel="noopener" class="text-grey-darkest no-underline hover:underline hover:text-red-light">@mitchwd.</a>
     </div>
-
-    <div id="menu" class="pt-10">
-      <div class="text-lg font-bold">Menu</div>
-      <a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/error.html">Error</a>
-    </div>
   </body>
 
   <script type="text/javascript">
     if (result === true) {
       document.getElementById("answer").innerHTML = yesAnswers[Math.floor(Math.random() * yesAnswers.length)];
-      document.getElementById("notice").innerHTML = ("Rest In Peace, Gävlebocken<br />" + startDate + " &mdash; " + endDate + ", " + year);
+      document.getElementById("notice").innerHTML = ("Rest In Peace, Gävlebocken<br />" + startDate + " &mdash; " + endDate + ", " + year + "<br /> <img src='images/burnt_match.png' alt='Burnt match' class='w-48 mx-auto' />" );
     } else {
       document.getElementById("answer").innerHTML = noAnswers[Math.floor(Math.random() * noAnswers.length)];
     }
