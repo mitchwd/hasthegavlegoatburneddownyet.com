@@ -25,7 +25,13 @@
       // Answers
         yesAnswers = ["Yes.", "<em>Ja.</em><br />(Yes)", "Yes, sadly."];
         noAnswers = ["No.", "<em>Nej.</em><br />(No)", "Not yet.", "Nope!", "It's still standing."];
+
+        // Visitor Counter
+        function visitors2021(response) {
+            document.getElementById('visits').innerText = response.value;
+        }
     </script>
+    <script async src="https://api.countapi.xyz/hit/hasthegavlegoatburneddownyet.com/visits?callback=visitors2021"></script>
   </head>
   <body class="bg-grey-lightest mx-auto text-center font-sans font-thin text-grey-darkest">
     <div id="header" class="bg-red-light h-5"></div>
@@ -45,7 +51,8 @@
 </div>
 
     <div id="footer" class="text-xs pt-2">
-      Made with <span class="fas fa-heart"></span> by <a href="http://www.mitchwd.com" rel="noopener" class="text-grey-darkest no-underline hover:underline hover:text-red-light">@mitchwd.</a>
+      Made with <span class="fas fa-heart"></span> by <a href="http://www.mitchwd.com" rel="noopener" class="text-grey-darkest no-underline hover:underline hover:text-red-light">@mitchwd.</a><br />
+      Views: <span id="visits"></span>
     </div>
   </body>
 
