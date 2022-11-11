@@ -24,17 +24,7 @@
       // let message = "Yes. RIP Gävlebocken. 🔥";
       // let sub_message = "27th November - 5th December, 2022";
     </script>
-    <script>
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://api.countapi.xyz/hit/hasthegavlegoatburneddownyet.com/visits");
-      xhr.responseType = "json";
-      xhr.onload = function () {
-        // document.getElementById('visits').innerText = this.response.value;
-        console.log("Visitor count:", this.response.value);
-      };
-      xhr.send();
-    </script>
-
+    <script defer src="/_vercel/insights/script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
