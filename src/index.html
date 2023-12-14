@@ -23,8 +23,8 @@
       // let sub_message = 'Check back on the 3rd December, 2023. 🐐🔥🧯';
 
       // Standing - check the date is correct!
-      let message =
-        "Despite the bird's best attempts,\nGävlebocken still stands!";
+      let message = "Despite the bird's best attempts,";
+      let message2 = 'Gävlebocken still stands!';
       let sub_message = 'The goat has been standing since 3rd December, 2023.';
 
       // Fallen - check the dates are correct!
@@ -56,6 +56,12 @@
         id="message"
       >
         <!-- message -->
+      </h2>
+      <h2
+        class="text-5xl text-white font-heavy mb-2 drop-shadow-md"
+        id="message2"
+      >
+        <!-- message2 -->
       </h2>
       <h3 class="text-xl font-medium" id="sub_message"><!-- sub_message --></h3>
       <a
@@ -158,6 +164,7 @@
   <script>
     // Set the content with the variables above.
     document.getElementById('message').textContent = message;
+    document.getElementById('message2').textContent = message2;
     document.getElementById('sub_message').textContent = sub_message;
   </script>
 </html>
