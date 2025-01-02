@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import gavlebocken from "./assets/gavlebocken.webp";
 import "./index.css";
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
     <>
       <div>
         <img
-          src="src/assets/gavlebocken.webp"
-          alt="A background image of a forest of trees."
+          src={gavlebocken}
+          alt="A background image of a straw goat."
           className="absolute h-full w-full object-cover opacity-50"
         />
         <div className="w-screen h-screen bg-gradient-to-b from-gray-500 to-white opacity-50">
