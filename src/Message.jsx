@@ -2,14 +2,13 @@ import { format } from 'date-fns';
 // import MockDate from 'mockdate';
 
 function Message() {
+  const fallenDate = new Date(import.meta.env.VITE_FALLEN_DATE);
+
   // TESTING: Set a fake date
   // MockDate.set('2025-05-01'); // Pre advent
   // MockDate.set('2025-12-10'); // Within advent
   // MockDate.set('2026-02-01'); // In the new year
-
-  // Fallen - check the dates are correct!
-  // let message = "Yes. RIP Gävlebocken. 🔥";
-  // let sub_message = "30th November - 5th December, 2025";
+  // MockDate.set('2027-12-01'); // Manual date where NYD falls on a weekend.
 
   const getFirstSundayOfAdvent = (year) => {
     // Christmas Day is December 25, so we need to calculate the Sunday four weeks prior.
@@ -48,15 +47,27 @@ function Message() {
   const firstWeekdayAfterNewYear = getFirstWeekdayAfterNewYear(year + 1);
 
   // Check if the current date is between the first Sunday of Advent and the final date
-  const isInSeason = currentDate >= firstSundayOfAdvent && currentDate < firstWeekdayAfterNewYear;
+  const isInSeason = currentDate >= firstSundayOfAdvent && currentDate <= firstWeekdayAfterNewYear;
+  const hasFallen = fallenDate >= firstSundayOfAdvent && fallenDate <= firstWeekdayAfterNewYear;
   
   console.debug('currentDate', currentDate)
   console.debug('firstSundayOfAdvent', firstSundayOfAdvent)
   console.debug('firstWeekdayAfterNewYear', firstWeekdayAfterNewYear)
   console.debug('isInSeason', isInSeason)
+  console.debug('fallenDate', fallenDate)
+  console.debug('hasFallen', hasFallen)
 
-  let message = isInSeason ? "Gävlebocken is standing tall!  \n🐐🔥🧯" : `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`;
-  let sub_message = isInSeason ? `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.` : "🐐🔥🧯";
+  let message;
+  let sub_message;
+
+  // If the goat has fallen, show the RIP message
+  if (hasFallen) {
+    message =  "Yes. RIP Gävlebocken. 🔥";
+    sub_message = `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(fallenDate, 'MMMM do, yyyy')}`;
+  } else {
+    message = isInSeason ? "Gävlebocken is standing tall!  \n🐐🔥🧯" : `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`;
+    sub_message = isInSeason ? `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.` : "🐐🔥🧯";
+  }
 
   return (
     <>
