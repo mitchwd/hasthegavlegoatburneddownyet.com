@@ -1,23 +1,10 @@
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "./Footer";
+import Message from "./Message";
 import gavlebocken from "./assets/gavlebocken.webp";
 import "./index.css";
 
 function App() {
-  // Out of season
-  let message = "It's not Christmas time yet!";
-  let message2 = "Check back on November 30th, 2025.";
-  let sub_message = "🐐🔥🧯";
-
-  // Standing - check the date is correct!
-  // let message = "Gävlebocken is standing tall!";
-  // let message2 = '🐐🔥🧯';
-  // let sub_message = 'The goat has been standing since 30th November, 2025.';
-
-  // Fallen - check the dates are correct!
-  // let message = "Yes. RIP Gävlebocken. 🔥";
-  // let sub_message = "30th November - 5th December, 2025";
-
   return (
     <>
       <div>
@@ -31,24 +18,7 @@ function App() {
         </div>
       </div>
       <div className="w-screen h-screen fixed top-0 left-0 right-0 mt-60">
-        <h1 className="text-lg uppercase mb-2">
-          Has the Gävle Goat burned down yet?
-        </h1>
-        <h2
-          className="text-5xl text-white font-heavy mb-2 drop-shadow-md"
-          id="message"
-        >
-          {message}
-        </h2>
-        <h2
-          className="text-5xl text-white font-heavy mb-2 drop-shadow-md"
-          id="message2"
-        >
-          {message2}
-        </h2>
-        <h3 className="text-xl font-medium" id="sub_message">
-          {sub_message}
-        </h3>
+        <Message />
         <a
           href="https://www.visitgavle.se/en/gavle-goat"
           id="button"
