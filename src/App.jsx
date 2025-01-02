@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Footer from "./Footer";
 import Message from "./Message";
 import gavlebocken from "./assets/gavlebocken.webp";
@@ -75,6 +76,7 @@ function App() {
         </div>
       </div>
       <Footer />
+      <SpeedInsights />
       <Analytics />
     </>
   );
