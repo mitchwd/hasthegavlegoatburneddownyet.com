@@ -14,7 +14,7 @@ function App() {
           alt="A background image of a straw goat."
           className="absolute h-full w-full object-cover opacity-50"
         />
-        <div className="w-screen h-screen bg-gradient-to-b from-gray-500 to-white opacity-50">
+        <div className="w-screen h-screen bg-linear-to-b from-gray-500 to-white opacity-50">
           {/* Gradient overlay */}
         </div>
       </div>
@@ -25,7 +25,7 @@ function App() {
           id="button"
           target="_self"
           rel="noreferrer"
-          className="mt-8 p-3 rounded-md bg-gray-200 w-40 mx-auto shadow text-md font-medium hover:bg-gray-100 hover:text-gray-800 block"
+          className="mt-8 p-3 rounded-md bg-gray-200 w-40 mx-auto shadow-sm text-md font-medium hover:bg-gray-100 hover:text-gray-800 block"
         >
           Find out more
         </a>
