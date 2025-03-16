@@ -10,8 +10,7 @@ import vercel from 'vite-plugin-vercel';
 export default defineConfig({
   plugins: [react(), vercel(), tailwindcss()],
   server: {
-    //@ts-expect-error Port should always be a string
-    port: env.PORT,
+    port: Number(env.PORT || 4173),
   },
   test: {
     globals: true,
