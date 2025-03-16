@@ -11,6 +11,5 @@ export default defineConfig({
     port: env.PORT,
   },
   vercel: {
-    // optional configuration options, see "Advanced usage" below for details
   },
 })
