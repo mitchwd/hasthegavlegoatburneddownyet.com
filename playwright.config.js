@@ -32,8 +32,12 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    extraHTTPHeaders: {
+      'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+      'x-vercel-set-bypass-cookie': true | 'samesitenone'
+    }
   },
-
+  
   /* Configure projects for major browsers */
   projects: [
     {
@@ -73,10 +77,10 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'npm run preview',
-    url: 'http://localhost:4173',
-    reuseExistingServer: !process.env.CI,
-  },
+  // webServer: {
+  //   command: 'npm run preview',
+  //   url: 'http://localhost:4173',
+  //   reuseExistingServer: !process.env.CI,
+  // },
 });
 
