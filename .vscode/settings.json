@@ -1,7 +1,10 @@
 {
   "cSpell.words": [
     "bernstal",
-    "Gävle"
+    "Gävle",
     "mitchwd",
-  ]
+  ],
+  "editor.formatOnSave": true,
+  "notebook.formatOnSave.enabled": true,
+  "editor.formatOnPaste": true
 }
