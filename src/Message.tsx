@@ -92,10 +92,18 @@ function Message() {
       <h1 className='text-lg uppercase mb-2'>
         Has the Gävle Goat burned down yet?
       </h1>
-      <h2 className='text-5xl text-white font-heavy mb-2 drop-shadow-md whitespace-pre'>
+      <h2
+        className='text-5xl text-white font-heavy mb-2 drop-shadow-md whitespace-pre'
+        data-testid='message'
+      >
         {message}
       </h2>
-      <h3 className='text-xl font-medium whitespace-pre'>{sub_message}</h3>
+      <h3
+        className='text-xl font-medium whitespace-pre'
+        data-testid='subMessage'
+      >
+        {sub_message}
+      </h3>
     </>
   );
 }
