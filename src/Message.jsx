@@ -62,11 +62,11 @@ function Message() {
 
   // If the goat has fallen, show the RIP message
   if (hasFallen) {
-    message =  "Yes. RIP Gävlebocken. 🔥";
+    message =  'Yes. RIP Gävlebocken. 🔥';
     sub_message = `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(fallenDate, 'MMMM do, yyyy')}`;
   } else {
-    message = isInSeason ? "Gävlebocken is standing tall!  \n🐐🔥🧯" : `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`;
-    sub_message = isInSeason ? `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.` : "🐐🔥🧯";
+    message = isInSeason ? 'Gävlebocken is standing tall!  \n🐐🔥🧯' : `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`;
+    sub_message = isInSeason ? `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.` : '🐐🔥🧯';
   }
 
   return (
