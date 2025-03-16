@@ -31,13 +31,9 @@ export default defineConfig({
     baseURL: process.env.BASE_URL || 'http://localhost:4173',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    extraHTTPHeaders: {
-      'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
-      'x-vercel-set-bypass-cookie': true | 'samesitenone'
-    }
+    trace: 'on-first-retry'
   },
-  
+
   /* Configure projects for major browsers */
   projects: [
     {
