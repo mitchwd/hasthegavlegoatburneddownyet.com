@@ -9,3 +9,4 @@ dist
 /playwright-report/
 /playwright/.cache/
 /test-results/
+/coverage/

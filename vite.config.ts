@@ -14,6 +14,18 @@ export default defineConfig({
     port: env.PORT,
   },
   test: {
+    globals: true,
+    css: true,
+    coverage: {
+      enabled: true,
+      provider: 'istanbul',
+			all: true,
+      include: ['src/**'],
+      exclude: ['src/App.spec.tsx'],
+			reporter: ['html', 'text', 'json-summary', 'json'],
+			reportOnFailure: true,
+    },
+    includeTaskLocation: true
   },
   vercel: {},
 });
