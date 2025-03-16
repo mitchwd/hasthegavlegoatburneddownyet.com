@@ -1,3 +1,5 @@
+/// <reference types="vitest/config" />
+
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { env } from 'process';
@@ -10,6 +12,8 @@ export default defineConfig({
   server: {
     //@ts-expect-error Port should always be a string
     port: env.PORT,
+  },
+  test: {
   },
   vercel: {},
 });
