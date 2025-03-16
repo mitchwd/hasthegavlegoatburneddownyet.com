@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
-import process from 'node:process';
+import process from 'process';
 
 /**
  * Read environment variables from file.
