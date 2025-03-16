@@ -6,5 +6,7 @@
   ],
   "editor.formatOnSave": true,
   "notebook.formatOnSave.enabled": true,
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true
 }
