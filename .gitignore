@@ -3,3 +3,9 @@ build
 dist
 .vercel
 .env*.local
+
+# Playwright
+/blob-report/
+/playwright-report/
+/playwright/.cache/
+/test-results/
