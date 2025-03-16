@@ -1,4 +1,4 @@
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { env } from 'node:process';
 import { defineConfig } from 'vite';
@@ -10,6 +10,5 @@ export default defineConfig({
   server: {
     port: env.PORT,
   },
-  vercel: {
-  },
-})
+  vercel: {},
+});

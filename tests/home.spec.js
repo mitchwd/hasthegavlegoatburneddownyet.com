@@ -1,13 +1,13 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from '@playwright/test';
 
-test("has title", async ({ page }) => {
-  await page.goto("/");
+test('has title', async ({ page }) => {
+  await page.goto('/');
 
   await expect(page).toHaveTitle(/Has the Gävle Goat burned down yet?/);
 });
 
-test("shows prompt", async ({ page }) => {
-  await page.goto("/");
+test('shows prompt', async ({ page }) => {
+  await page.goto('/');
 
   const promptText = await page.getByRole('heading', { name: 'Has the Gävle Goat burned' })
   const answerText = await page.getByRole('heading', { name: 'It\'s not Christmas time yet!' }) // @TODO: This will be flaky, depending on time of year.
@@ -16,9 +16,9 @@ test("shows prompt", async ({ page }) => {
   await expect(answerText).toBeVisible();
 });
 
-test("has Find Out More link", async ({ page }) => {
-  await page.goto("/");
-  await page.getByRole("link", { name: "Find out more" }).click()
+test('has Find Out More link', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('link', { name: 'Find out more' }).click()
   await expect(page).toHaveURL('https://www.visitgavle.se/en/gavle-goat')
 });
 
