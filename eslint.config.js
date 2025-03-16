@@ -6,7 +6,13 @@ import { globalIgnores } from 'eslint/config';
 import globals from 'globals';
 
 export default [
-  globalIgnores(['dist', '.vercel', 'playwright-report', 'test-results']),
+  globalIgnores([
+    'dist',
+    '.vercel',
+    'playwright-report',
+    'test-results',
+    'playwright/.cache',
+  ]),
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {

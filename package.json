@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "test": "playwright test",
+    "test-ct": "playwright test -c playwright-ct.config.js",
     "prepare": "husky"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.22.0",
+    "@playwright/experimental-ct-react": "^1.51.0",
     "@playwright/test": "^1.51.0",
     "@tailwindcss/vite": "^4.0.14",
     "@types/node": "^22.13.10",
