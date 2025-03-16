@@ -13,9 +13,18 @@ export default defineWorkspace([
         provider: 'playwright',
         // headless: true, // This is set in the package.json script instead
         instances: [
-          { browser: 'chromium' },
-          { browser: 'firefox' },
-          { browser: 'webkit' },
+          {
+            browser: 'chromium',
+            setupFiles: './src/setup-tests.ts',
+          },
+          {
+            browser: 'firefox',
+            setupFiles: './src/setup-tests.ts',
+          },
+          {
+            browser: 'webkit',
+            setupFiles: './src/setup-tests.ts',
+          },
         ],
       },
     },

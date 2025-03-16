@@ -18,9 +18,8 @@ export default defineConfig({
     coverage: {
       enabled: true,
       provider: 'istanbul',
-			all: true,
-      include: ['src/**'],
-      exclude: ['src/App.spec.tsx'],
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: ['src/main.tsx'],
 			reporter: ['html', 'text', 'json-summary', 'json'],
 			reportOnFailure: true,
     },
