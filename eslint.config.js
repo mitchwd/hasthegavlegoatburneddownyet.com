@@ -4,11 +4,19 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import { globalIgnores } from 'eslint/config';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-export default [
-  globalIgnores(['dist', '.vercel', 'playwright-report', 'test-results']),
+export default tseslint.config(
+  globalIgnores([
+    'dist',
+    '.vercel',
+    'playwright-report',
+    'test-results',
+    'playwright/.cache',
+  ]),
   {
-    files: ['**/*.{js,jsx}'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -18,7 +26,7 @@ export default [
         sourceType: 'module',
       },
     },
-    settings: { react: { version: '18.3' } },
+    settings: { react: { version: '19.0' } },
     plugins: {
       react,
       'react-hooks': reactHooks,
@@ -36,5 +44,5 @@ export default [
       ],
       quotes: ['error', 'single'],
     },
-  },
-];
+  }
+);
