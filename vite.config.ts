@@ -23,7 +23,10 @@ export default defineConfig({
 			reporter: ['html', 'text', 'json-summary', 'json'],
 			reportOnFailure: true,
     },
-    includeTaskLocation: true
+    includeTaskLocation: true,
   },
   vercel: {},
+  optimizeDeps: {
+    include: ['@vitest/browser', '@vitest/browser-react', 'react/jsx-dev-runtime'],
+  }
 });
