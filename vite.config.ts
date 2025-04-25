@@ -16,7 +16,6 @@ export default defineConfig({
     globals: true,
     css: true,
     coverage: {
-      enabled: true,
       provider: 'istanbul',
       include: ['src/**/*.{ts,tsx}'],
       exclude: ['src/main.tsx'],

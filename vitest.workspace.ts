@@ -11,7 +11,6 @@ export default defineWorkspace([
       browser: {
         enabled: true,
         provider: 'playwright',
-        // headless: true, // This is set in the package.json script instead
         instances: [
           {
             browser: 'chromium',

@@ -10,10 +10,10 @@
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "tsc": "tsc --build",
-    "test": "playwright test",
     "prepare": "husky",
-    "vitest": "vitest --workspace=vitest.workspace.ts --browser.headless",
-    "vitest:ui": "vitest --workspace=vitest.workspace.ts"
+    "test": "vitest --workspace=vitest.workspace.ts --browser.headless",
+    "coverage": "vitest --workspace=vitest.workspace.ts --browser.headless --coverage",
+    "test:ui": "vitest --workspace=vitest.workspace.ts --coverage"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
