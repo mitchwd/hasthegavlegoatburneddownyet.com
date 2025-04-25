@@ -10,7 +10,6 @@
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "tsc": "tsc --build",
-    "prepare": "husky",
     "test": "vitest --workspace=vitest.workspace.ts --browser.headless",
     "coverage": "vitest --workspace=vitest.workspace.ts --browser.headless --coverage",
     "test:ui": "vitest --workspace=vitest.workspace.ts --coverage"
