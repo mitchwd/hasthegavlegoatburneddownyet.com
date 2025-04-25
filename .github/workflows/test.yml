@@ -1,6 +1,10 @@
 name: Tests
-
-on: push
+permissions:
+    contents: read
+    pull-requests: write
+     
+on: 
+  pull_request:
 
 jobs:
   test:
@@ -25,3 +29,6 @@ jobs:
           name: coverage-report
           path: coverage/
           retention-days: 7
+      - name: 'Add coverage PR comment'
+        if: ${{ !cancelled() }} 
+        uses:  davelosert/vitest-coverage-report-action@v2
