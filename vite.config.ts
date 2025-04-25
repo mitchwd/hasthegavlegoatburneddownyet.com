@@ -26,6 +26,11 @@ export default defineConfig({
   },
   vercel: {},
   optimizeDeps: {
-    include: ['@vitest/browser', '@vitest/browser-react', 'react/jsx-dev-runtime'],
+    exclude: [
+      'chromium-bidi',
+      '../pkg',
+      'fsevents',
+      'playwright'
+    ]
   }
 });
