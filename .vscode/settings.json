@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "bernstal",
+    "davelosert",
     "fontawesome",
     "Fonticons",
     "fredag",
@@ -15,7 +16,8 @@
     "söndag",
     "tisdag",
     "torsdag",
-    "viewports"
+    "viewports",
+    "vitest"
   ],
   "editor.formatOnSave": true,
   "notebook.formatOnSave.enabled": true,

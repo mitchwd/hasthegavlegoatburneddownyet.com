@@ -25,3 +25,6 @@ jobs:
           name: coverage-report
           path: coverage/
           retention-days: 7
+      - name: 'Add coverage PR comment'
+        if: ${{ !cancelled() }} 
+        uses:  davelosert/vitest-coverage-report-action@v2

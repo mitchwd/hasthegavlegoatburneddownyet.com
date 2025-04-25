@@ -29,7 +29,7 @@ export default defineConfig({
       provider: 'istanbul',
       include: ['src/**/*.{ts,tsx}'],
       exclude: ['src/main.tsx'],
-			reporter: ['html', 'text', 'json-summary', 'json'],
+			reporter: ['html', 'text', 'json-summary', 'json', 'lcovonly'],
 			reportOnFailure: true,
     },
     // typecheck: {
