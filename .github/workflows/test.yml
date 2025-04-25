@@ -13,8 +13,8 @@ jobs:
           node-version: '23.x'
           # cache: 'npm'
       - run: npm ci
-      - name: "Install playwright"
-        run: npx playwright install-deps
+      - name: "Install playwright dependencies"
+        run: npx playwright install --with-deps
       - name: "Run tests and calculate coverage" 
         run: npm run coverage
       - name: "Upload coverage report"
