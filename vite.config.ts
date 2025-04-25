@@ -12,6 +12,17 @@ export default defineConfig({
     port: 4173,
   },
   test: {
+    name: 'component',
+    browser: {
+      enabled: true,
+      provider: 'playwright',
+      instances: [
+        {
+          browser: 'chromium',
+          setupFiles: './src/setup-tests.ts'
+        }
+      ]
+    },
     globals: true,
     css: true,
     coverage: {
@@ -21,13 +32,13 @@ export default defineConfig({
 			reporter: ['html', 'text', 'json-summary', 'json'],
 			reportOnFailure: true,
     },
+    // typecheck: {
+    //   enabled: true,
+    // },
     includeTaskLocation: true,
   },
   vercel: {},
   optimizeDeps: {
-    exclude: [
-      'chromium-bidi',
-      'playwright'
-    ]
+    exclude: ['chromium-bidi', 'playwright']
   }
 });
