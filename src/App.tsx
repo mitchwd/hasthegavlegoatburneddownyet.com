@@ -1,11 +1,9 @@
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import Footer from './Footer';
 import Message from './Message';
 import gavlebocken from './assets/gavlebocken.webp';
 import './index.css';
 
-function App() {
+export default function App() {
   return (
     <>
       <div aria-hidden='true'>
@@ -76,10 +74,6 @@ function App() {
         </div>
       </main>
       <Footer />
-      <SpeedInsights />
-      <Analytics />
     </>
   );
 }
-
-export default App;

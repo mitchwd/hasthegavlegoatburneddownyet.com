@@ -1,66 +1,26 @@
 import { format } from 'date-fns';
-// import MockDate from 'mockdate';
+import {
+  getFirstSundayOfAdvent,
+  getFirstWeekdayAfterNewYearsDay,
+  isDateInAdventSeason,
+} from './helpers';
 
-function Message() {
-  const fallenDate = new Date(import.meta.env.VITE_FALLEN_DATE);
+function Message({ fallenString }: { fallenString?: string } = {}) {
+  // If fallenString is provided, use it; otherwise use the environment variable. This is used for testing.
+  const dateString = fallenString || import.meta.env.VITE_FALLEN_DATE;
 
-  // TESTING: Set a fake date
-  // MockDate.set('2025-05-01'); // Pre advent
-  // MockDate.set('2025-12-10'); // Within advent
-  // MockDate.set('2026-02-01'); // In the new year
-  // MockDate.set('2027-12-01'); // Manual date where NYD falls on a weekend.
-
-  const getFirstSundayOfAdvent = (year: number) => {
-    // Christmas Day is December 25, so we need to calculate the Sunday four weeks prior.
-    const christmas = new Date(year, 11, 25); // December 25th
-    const dayOfWeek = christmas.getDay(); // Get day of week (0 = Sunday, 6 = Saturday)
-
-    // Calculate the difference between Christmas and the first Sunday of Advent
-    const daysToSunday = (dayOfWeek + 3) % 7; // The first Sunday of Advent is 4 Sundays before Christmas
-    const firstSundayOfAdvent = new Date(christmas);
-    firstSundayOfAdvent.setDate(christmas.getDate() - daysToSunday - 28); // Subtract 28 days for the 4th Sunday before Christmas
-
-    return firstSundayOfAdvent;
-  };
-
-  // Helper function to get the first weekday after New Year's Day.
-  const getFirstWeekdayAfterNewYear = (year: number) => {
-    const newYear = new Date(year, 0, 1); // January 1st
-    let firstWeekday = new Date(newYear);
-
-    // Move to the next weekday if January 1st is on a weekend
-    if (firstWeekday.getDay() === 0) {
-      // Sunday
-      firstWeekday.setDate(newYear.getDate() + 1); // Monday
-    } else if (firstWeekday.getDay() === 6) {
-      // Saturday
-      firstWeekday.setDate(newYear.getDate() + 2); // Monday
-    } else {
-      firstWeekday = new Date(newYear);
-    }
-
-    return firstWeekday;
-  };
+  // Create a new date from the string if available, otherwise use very old date.
+  const fallenDate = dateString ? new Date(dateString) : new Date('1970-01-01');
 
   const currentDate = new Date();
   const year = currentDate.getFullYear();
 
   const firstSundayOfAdvent = getFirstSundayOfAdvent(year);
-  const firstWeekdayAfterNewYear = getFirstWeekdayAfterNewYear(year + 1);
+  const firstWeekdayAfterNewYear = getFirstWeekdayAfterNewYearsDay(year + 1);
 
-  // Check if the current date is between the first Sunday of Advent and the final date
-  const isInSeason =
-    currentDate >= firstSundayOfAdvent &&
-    currentDate <= firstWeekdayAfterNewYear;
+  const isInSeason = isDateInAdventSeason(currentDate);
   const hasFallen =
     fallenDate >= firstSundayOfAdvent && fallenDate <= firstWeekdayAfterNewYear;
-
-  console.debug('currentDate', currentDate);
-  console.debug('firstSundayOfAdvent', firstSundayOfAdvent);
-  console.debug('firstWeekdayAfterNewYear', firstWeekdayAfterNewYear);
-  console.debug('isInSeason', isInSeason);
-  console.debug('fallenDate', fallenDate);
-  console.debug('hasFallen', hasFallen);
 
   let message;
   let sub_message;
@@ -92,10 +52,18 @@ function Message() {
       <h1 className='text-lg uppercase mb-2'>
         Has the Gävle Goat burned down yet?
       </h1>
-      <h2 className='text-5xl text-white font-heavy mb-2 drop-shadow-md whitespace-pre'>
+      <h2
+        className='text-5xl text-white font-heavy mb-2 drop-shadow-md whitespace-pre'
+        data-testid='message'
+      >
         {message}
       </h2>
-      <h3 className='text-xl font-medium whitespace-pre'>{sub_message}</h3>
+      <h3
+        className='text-xl font-medium whitespace-pre'
+        data-testid='subMessage'
+      >
+        {sub_message}
+      </h3>
     </>
   );
 }

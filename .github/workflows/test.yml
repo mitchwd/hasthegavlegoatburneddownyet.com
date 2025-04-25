@@ -1,0 +1,27 @@
+name: Tests
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23.x'
+          cache: 'npm'
+      - run: npm ci
+      - name: "Install playwright dependencies"
+        run: npx playwright install --with-deps
+      - name: "Run tests and calculate coverage" 
+        run: npm run coverage
+      - name: "Upload coverage report"
+        ## Always run this step- even if previous step fails, but not on cancelled.
+        if: ${{ !cancelled() }} 
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 7
