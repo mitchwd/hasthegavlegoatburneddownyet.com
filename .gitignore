@@ -5,8 +5,8 @@ dist
 .env*.local
 
 # Playwright
-/blob-report/
-/playwright-report/
-/playwright/.cache/
-/test-results/
-/coverage/
+blob-report/
+playwright-report/
+playwright/.cache/
+test-results/
+coverage/
