@@ -74,8 +74,6 @@ export default function App() {
         </div>
       </main>
       <Footer />
-      {/* <SpeedInsights /> */}
-      {/* <Analytics /> */}
     </>
   );
 }
