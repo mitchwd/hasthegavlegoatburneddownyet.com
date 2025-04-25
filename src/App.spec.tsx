@@ -4,7 +4,7 @@ import { render } from 'vitest-browser-react';
 
 import App from './App';
 
-test.skip('should mount', async () => {
+test('should mount', async () => {
   render(<App />);
 
   await expect
