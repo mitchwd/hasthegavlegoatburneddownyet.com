@@ -2,7 +2,6 @@
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import { env } from 'process';
 import { defineConfig } from 'vite';
 import vercel from 'vite-plugin-vercel';
 
@@ -10,7 +9,7 @@ import vercel from 'vite-plugin-vercel';
 export default defineConfig({
   plugins: [react(), vercel(), tailwindcss()],
   server: {
-    port: Number(env.PORT || 4173),
+    port: 4173,
   },
   test: {
     globals: true,
@@ -28,8 +27,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: [
       'chromium-bidi',
-      '../pkg',
-      'fsevents',
       'playwright'
     ]
   }
