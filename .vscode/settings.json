@@ -23,5 +23,8 @@
   "notebook.formatOnSave.enabled": true,
   "editor.formatOnPaste": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "~/.local/share/mise/shims/node"
+  }
 }
