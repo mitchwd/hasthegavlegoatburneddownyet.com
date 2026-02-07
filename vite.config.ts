@@ -2,6 +2,7 @@
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
+import { playwright } from '@vitest/browser-playwright';
 import { defineConfig } from 'vite';
 import vercel from 'vite-plugin-vercel';
 
@@ -15,22 +16,22 @@ export default defineConfig({
     name: 'component',
     browser: {
       enabled: true,
-      provider: 'playwright',
+      provider: playwright(),
       instances: [
         {
           browser: 'chromium',
-          setupFiles: './src/setup-tests.ts'
-        }
-      ]
+          setupFiles: './src/setup-tests.ts',
+        },
+      ],
     },
     globals: true,
     css: true,
     coverage: {
       provider: 'istanbul',
       include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/main.tsx'],
-			reporter: ['html', 'text', 'json-summary', 'json', 'lcovonly'],
-			reportOnFailure: true,
+      exclude: ['src/main.tsx', 'coverage/**', 'dist/**'],
+      reporter: ['html', 'text', 'json-summary', 'json', 'lcovonly'],
+      reportOnFailure: true,
     },
     // typecheck: {
     //   enabled: true,
@@ -39,6 +40,6 @@ export default defineConfig({
   },
   vercel: {},
   optimizeDeps: {
-    exclude: ['chromium-bidi', 'playwright']
-  }
+    exclude: ['chromium-bidi', 'playwright'],
+  },
 });

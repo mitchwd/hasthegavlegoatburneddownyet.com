@@ -1,6 +1,6 @@
-import { page } from '@vitest/browser/context';
 import { expect, test } from 'vitest';
 import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 import Footer from './Footer';
 
@@ -29,5 +29,9 @@ test('shows a link to the image credit', async () => {
 test('shows exactly 2 links', async () => {
   render(<Footer />);
 
-  await expect(page.getByRole('link').all()).toHaveLength(2);
+  // Wait for at least one link to be present before counting
+  await expect.element(page.getByRole('link').first()).toBeInTheDocument();
+
+  const links = await page.getByRole('link').all();
+  expect(links).toHaveLength(2);
 });
