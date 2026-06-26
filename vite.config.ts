@@ -9,32 +9,6 @@ export default defineConfig({
   server: {
     port: 4173,
   },
-  //   test: {
-  //   name: 'component',
-  //   browser: {
-  //     enabled: true,
-  //     provider: playwright(),
-  //     instances: [
-  //       {
-  //         browser: 'chromium',
-  //         setupFiles: './src/setup-tests.ts',
-  //       },
-  //     ],
-  //   },
-  //   globals: true,
-  //   css: true,
-  //   coverage: {
-  //     provider: 'istanbul',
-  //     include: ['src/**/*.{ts,tsx}'],
-  //     exclude: ['src/main.tsx', 'coverage/**', 'dist/**'],
-  //     reporter: ['html', 'text', 'json-summary', 'json', 'lcovonly'],
-  //     reportOnFailure: true,
-  //   },
-  //   // typecheck: {
-  //   //   enabled: true,
-  //   // },
-  //   includeTaskLocation: true,
-  // },
   optimizeDeps: {
     exclude: ['chromium-bidi', 'playwright'],
   },
