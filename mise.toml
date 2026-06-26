@@ -1,6 +1,7 @@
 [tools]
 node = "25"
-bun = "1"
+bun = "latest"
+vercel = "latest"
 
 [tasks]
 [tasks.lint]

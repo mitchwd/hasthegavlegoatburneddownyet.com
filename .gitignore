@@ -2,6 +2,7 @@ node_modules
 build
 dist
 .vercel
+.env*
 .env*.local
 mise.*.toml
 .vscode/mise-tools
