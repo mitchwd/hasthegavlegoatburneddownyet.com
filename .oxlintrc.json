@@ -1,8 +1,8 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [],
+  "plugins": ["oxc", "typescript", "react", "unicorn"],
   "categories": {
-    "correctness": "off"
+    "correctness": "warn"
   },
   "options": {
     "typeAware": true,
@@ -127,6 +127,12 @@
       "env": {
         "es2020": true,
         "browser": true
+      }
+    },
+    {
+      "files": ["**/*.spec.{ts,tsx}"],
+      "rules": {
+        "typescript/no-floating-promises": "off"
       }
     }
   ]
