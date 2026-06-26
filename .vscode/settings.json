@@ -19,12 +19,29 @@
     "viewports",
     "vitest"
   ],
-  "editor.formatOnSave": true,
-  "notebook.formatOnSave.enabled": true,
-  "editor.formatOnPaste": true,
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
   "debug.javascript.defaultRuntimeExecutable": {
     "pwa-node": "${workspaceFolder}/.vscode/mise-tools/node"
-  }
+  },
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "explicit"
+  },
+  "oxc.fmt.configPath": "./.oxfmtrc.json",
+  "oxc.configPath": "./.oxlintrc.json",
+  "typescript.native-preview.tsdk": "node_modules/@typescript/native-preview"
 }

@@ -1,11 +1,46 @@
 import { format } from 'date-fns';
+import type { JSX } from 'react';
+
 import {
   getFirstSundayOfAdvent,
   getFirstWeekdayAfterNewYearsDay,
   isDateInAdventSeason,
 } from './helpers';
 
-function Message({ fallenString }: { fallenString?: string } = {}) {
+const getMessages = ({
+  hasFallen,
+  isInSeason,
+  firstSundayOfAdvent,
+  fallenDate,
+}: {
+  hasFallen: boolean;
+  isInSeason: boolean;
+  firstSundayOfAdvent: Date;
+  fallenDate: Date;
+}): { message: string; sub_message: string } => {
+  if (hasFallen) {
+    return {
+      message: 'Yes. RIP Gävlebocken. 🔥',
+      sub_message: `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(fallenDate, 'MMMM do, yyyy')}`,
+    };
+  }
+
+  if (isInSeason) {
+    return {
+      message: 'Gävlebocken is standing tall!  \n🐐🔥🧯',
+      sub_message: `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`,
+    };
+  }
+
+  return {
+    message: `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`,
+    sub_message: '🐐🔥🧯',
+  };
+};
+
+const Message = ({
+  fallenString,
+}: { fallenString?: string } = {}): JSX.Element => {
   // If fallenString is provided, use it; otherwise use the environment variable. This is used for testing.
   const dateString = fallenString || import.meta.env.VITE_FALLEN_DATE;
 
@@ -22,38 +57,20 @@ function Message({ fallenString }: { fallenString?: string } = {}) {
   const hasFallen =
     fallenDate >= firstSundayOfAdvent && fallenDate <= firstWeekdayAfterNewYear;
 
-  let message;
-  let sub_message;
-
-  // If the goat has fallen, show the RIP message
-  if (hasFallen) {
-    message = 'Yes. RIP Gävlebocken. 🔥';
-    sub_message = `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(
-      fallenDate,
-      'MMMM do, yyyy'
-    )}`;
-  } else {
-    message = isInSeason
-      ? 'Gävlebocken is standing tall!  \n🐐🔥🧯'
-      : `It's not Christmas time yet! \nCheck back on ${format(
-          firstSundayOfAdvent,
-          'MMMM do, yyyy'
-        )}.`;
-    sub_message = isInSeason
-      ? `The goat has been standing since ${format(
-          firstSundayOfAdvent,
-          'MMMM do, yyyy'
-        )}.`
-      : '🐐🔥🧯';
-  }
+  const { message, sub_message } = getMessages({
+    fallenDate,
+    firstSundayOfAdvent,
+    hasFallen,
+    isInSeason,
+  });
 
   return (
     <>
-      <h1 className='text-lg uppercase mb-2'>
+      <h1 className='mb-2 text-lg uppercase'>
         Has the Gävle Goat burned down yet?
       </h1>
       <h2
-        className='text-5xl text-white font-heavy mb-2 drop-shadow-md whitespace-pre'
+        className='font-heavy mb-2 text-5xl whitespace-pre text-white drop-shadow-md'
         data-testid='message'
       >
         {message}
@@ -66,6 +83,6 @@ function Message({ fallenString }: { fallenString?: string } = {}) {
       </h3>
     </>
   );
-}
+};
 
 export default Message;

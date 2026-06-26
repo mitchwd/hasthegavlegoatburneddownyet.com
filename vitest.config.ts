@@ -8,30 +8,27 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      name: 'component',
       browser: {
         enabled: true,
-        provider: playwright(),
         instances: [
           {
             browser: 'chromium',
             setupFiles: './src/setup-tests.ts',
           },
         ],
+        provider: playwright(),
       },
-      globals: true,
-      css: true,
       coverage: {
-        provider: 'istanbul',
-        include: ['src/**/*.{ts,tsx}'],
         exclude: ['src/main.tsx', 'coverage/**', 'dist/**'],
-        reporter: ['html', 'text', 'json-summary', 'json', 'lcovonly'],
+        include: ['src/**/*.{ts,tsx}'],
+        provider: 'istanbul',
         reportOnFailure: true,
+        reporter: ['html', 'text', 'json-summary', 'json', 'lcovonly'],
       },
-      // typecheck: {
-      //   enabled: true,
-      // },
+      css: true,
+      globals: true,
       includeTaskLocation: true,
+      name: 'component',
     },
-  })
+  }),
 );
