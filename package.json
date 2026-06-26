@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
+    "deploy": "vercel",
     "tsc": "tsc --build",
     "test": "vitest --browser.headless",
     "coverage": "vitest --browser.headless --coverage",
@@ -44,7 +45,6 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.56.0",
     "vite": "^8.1.0",
-    "vite-plugin-vercel": "^11.1.1",
     "vitest": "^4.1.9",
     "vitest-browser-react": "^2.2.0"
   }
