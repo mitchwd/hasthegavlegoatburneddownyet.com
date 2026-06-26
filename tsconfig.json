@@ -5,6 +5,6 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["@vitest/browser/providers/playwright"]
+    "types": ["node", "@vitest/browser/providers/playwright"]
   }
 }
