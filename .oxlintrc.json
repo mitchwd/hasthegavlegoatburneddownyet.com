@@ -11,7 +11,13 @@
   "env": {
     "builtin": true
   },
-  "ignorePatterns": ["dist", ".vercel", "playwright-report", "test-results", "playwright/.cache"],
+  "ignorePatterns": [
+    "dist",
+    ".vercel",
+    "playwright-report",
+    "test-results",
+    "playwright/.cache"
+  ],
   "overrides": [
     {
       "files": ["**/*.{js,jsx,ts,tsx}"],

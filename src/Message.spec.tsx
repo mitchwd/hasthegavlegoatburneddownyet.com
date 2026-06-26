@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import { render } from 'vitest-browser-react';
 import { page } from 'vitest/browser';
+
 import Message from './Message';
 
 test('shows the prompt and answer', async () => {
@@ -37,8 +38,8 @@ describe('before season', () => {
     await expect
       .element(
         page.getByText(
-          /It's not Christmas time yet! \nCheck back on November 30th, 2025/i
-        )
+          /It's not Christmas time yet! \nCheck back on November 30th, 2025/i,
+        ),
       )
       .toBeVisible();
   });
@@ -51,8 +52,8 @@ describe('before season', () => {
     await expect
       .element(
         page.getByText(
-          /It's not Christmas time yet! \nCheck back on November 30th, 2025/i
-        )
+          /It's not Christmas time yet! \nCheck back on November 30th, 2025/i,
+        ),
       )
       .toBeVisible();
   });
@@ -77,7 +78,9 @@ describe('during season', () => {
       .toBeVisible();
     await expect
       .element(
-        page.getByText(/The goat has been standing since November 30th, 2025./i)
+        page.getByText(
+          /The goat has been standing since November 30th, 2025./i,
+        ),
       )
       .toBeVisible();
   });
@@ -92,7 +95,9 @@ describe('during season', () => {
       .toBeVisible();
     await expect
       .element(
-        page.getByText(/The goat has been standing since November 30th, 2025./i)
+        page.getByText(
+          /The goat has been standing since November 30th, 2025./i,
+        ),
       )
       .toBeVisible();
   });

@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+
 import {
   getFirstSundayOfAdvent,
   getFirstWeekdayAfterNewYearsDay,
@@ -28,32 +29,23 @@ function Message({ fallenString }: { fallenString?: string } = {}) {
   // If the goat has fallen, show the RIP message
   if (hasFallen) {
     message = 'Yes. RIP Gävlebocken. 🔥';
-    sub_message = `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(
-      fallenDate,
-      'MMMM do, yyyy'
-    )}`;
+    sub_message = `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(fallenDate, 'MMMM do, yyyy')}`;
   } else {
     message = isInSeason
       ? 'Gävlebocken is standing tall!  \n🐐🔥🧯'
-      : `It's not Christmas time yet! \nCheck back on ${format(
-          firstSundayOfAdvent,
-          'MMMM do, yyyy'
-        )}.`;
+      : `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`;
     sub_message = isInSeason
-      ? `The goat has been standing since ${format(
-          firstSundayOfAdvent,
-          'MMMM do, yyyy'
-        )}.`
+      ? `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`
       : '🐐🔥🧯';
   }
 
   return (
     <>
-      <h1 className='text-lg uppercase mb-2'>
+      <h1 className='mb-2 text-lg uppercase'>
         Has the Gävle Goat burned down yet?
       </h1>
       <h2
-        className='text-5xl text-white font-heavy mb-2 drop-shadow-md whitespace-pre'
+        className='font-heavy mb-2 text-5xl whitespace-pre text-white drop-shadow-md'
         data-testid='message'
       >
         {message}
