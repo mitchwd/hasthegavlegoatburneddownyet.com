@@ -1,3 +1,2 @@
-bun run tsc
 bun run format
 bun run lint:fix
