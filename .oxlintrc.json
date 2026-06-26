@@ -11,13 +11,14 @@
     "jsdoc",
     "node",
     "promise",
-    "vitest",
-    "jest"
+    "vitest"
   ],
   "categories": {
     "correctness": "error",
     "perf": "error",
-    "suspicious": "error"
+    "suspicious": "error",
+    // "restriction": "warn",
+    "style": "warn"
   },
   "options": {
     "typeAware": true,
@@ -37,6 +38,10 @@
     {
       "files": ["**/*.{js,jsx,ts,tsx}"],
       "rules": {
+        "vitest/require-hook": "off",
+        "eslint/no-ternary": "off",
+        "no-magic-numbers": "off",
+        "eslint/sort-imports": "off",
         "constructor-super": "error",
         "for-direction": "error",
         "getter-return": "error",
@@ -151,9 +156,44 @@
       }
     },
     {
+      // Tests
       "files": ["**/*.spec.{ts,tsx}"],
       "rules": {
-        "typescript/no-floating-promises": "off"
+        "vitest/prefer-importing-vitest-globals": "off",
+        "vitest/require-hook": "error",
+        "vitest/prefer-to-be-falsy": "off",
+        "vitest/prefer-to-be-truthy": "off",
+        "vitest/valid-title": [
+          "error",
+          {
+            "allowArguments": true
+          }
+        ],
+        "vitest/no-hooks": "off",
+        "typescript/no-floating-promises": "off",
+        "eslint/no-magic-numbers": "off",
+        "vitest/require-test-timeout": "off",
+        "vitest/prefer-expect-assertions": "off",
+        "oxc/no-async-await": "off",
+        "vitest/consistent-test-filename": [
+          "error",
+          {
+            "allTestPattern": "__tests__",
+            "pattern": ".*\\.spec\\.({ts,tsx})$"
+          }
+        ]
+      }
+    },
+    {
+      // Ensure Components are in PascalCase
+      "files": ["**/*.tsx", "**/*.spec.tsx"],
+      "rules": {
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "pascalCase"
+          }
+        ]
       }
     }
   ]

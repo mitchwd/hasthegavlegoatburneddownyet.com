@@ -1,3 +1,5 @@
+// oxlint-disable react/jsx-max-depth
+
 import gavlebocken from './assets/gavlebocken.webp';
 import Footer from './Footer';
 import Message from './Message';

@@ -6,7 +6,38 @@ import {
   isDateInAdventSeason,
 } from './helpers';
 
-function Message({ fallenString }: { fallenString?: string } = {}) {
+const getMessages = ({
+  hasFallen,
+  isInSeason,
+  firstSundayOfAdvent,
+  fallenDate,
+}: {
+  hasFallen: boolean;
+  isInSeason: boolean;
+  firstSundayOfAdvent: Date;
+  fallenDate: Date;
+}) => {
+  if (hasFallen) {
+    return {
+      message: 'Yes. RIP Gävlebocken. 🔥',
+      sub_message: `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(fallenDate, 'MMMM do, yyyy')}`,
+    };
+  }
+
+  if (isInSeason) {
+    return {
+      message: 'Gävlebocken is standing tall!  \n🐐🔥🧯',
+      sub_message: `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`,
+    };
+  }
+
+  return {
+    message: `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`,
+    sub_message: '🐐🔥🧯',
+  };
+};
+
+const Message = ({ fallenString }: { fallenString?: string } = {}) => {
   // If fallenString is provided, use it; otherwise use the environment variable. This is used for testing.
   const dateString = fallenString || import.meta.env.VITE_FALLEN_DATE;
 
@@ -23,21 +54,12 @@ function Message({ fallenString }: { fallenString?: string } = {}) {
   const hasFallen =
     fallenDate >= firstSundayOfAdvent && fallenDate <= firstWeekdayAfterNewYear;
 
-  let message;
-  let sub_message;
-
-  // If the goat has fallen, show the RIP message
-  if (hasFallen) {
-    message = 'Yes. RIP Gävlebocken. 🔥';
-    sub_message = `${format(firstSundayOfAdvent, 'MMMM do')} - ${format(fallenDate, 'MMMM do, yyyy')}`;
-  } else {
-    message = isInSeason
-      ? 'Gävlebocken is standing tall!  \n🐐🔥🧯'
-      : `It's not Christmas time yet! \nCheck back on ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`;
-    sub_message = isInSeason
-      ? `The goat has been standing since ${format(firstSundayOfAdvent, 'MMMM do, yyyy')}.`
-      : '🐐🔥🧯';
-  }
+  const { message, sub_message } = getMessages({
+    fallenDate,
+    firstSundayOfAdvent,
+    hasFallen,
+    isInSeason,
+  });
 
   return (
     <>
@@ -58,6 +80,6 @@ function Message({ fallenString }: { fallenString?: string } = {}) {
       </h3>
     </>
   );
-}
+};
 
 export default Message;

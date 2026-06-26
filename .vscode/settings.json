@@ -42,5 +42,6 @@
     "source.fixAll.oxc": "explicit"
   },
   "oxc.fmt.configPath": "./.oxfmtrc.json",
-  "oxc.configPath": "./.oxlintrc.json"
+  "oxc.configPath": "./.oxlintrc.json",
+  "typescript.native-preview.tsdk": "node_modules/@typescript/native-preview"
 }

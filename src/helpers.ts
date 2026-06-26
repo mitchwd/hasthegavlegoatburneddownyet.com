@@ -1,4 +1,6 @@
-export function getFirstSundayOfAdvent(year: number): Date {
+// oxlint-disable import/no-named-export import/group-exports
+
+export const getFirstSundayOfAdvent = (year: number): Date => {
   const christmas = new Date(Date.UTC(year, 11, 25)); // December 25th (month is 0-indexed)
 
   // Get the day of the week for Christmas in UTC (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
@@ -21,9 +23,9 @@ export function getFirstSundayOfAdvent(year: number): Date {
   );
 
   return fourthSundayBeforeChristmas;
-}
+};
 
-export function getFirstWeekdayAfterNewYearsDay(year: number): Date {
+export const getFirstWeekdayAfterNewYearsDay = (year: number): Date => {
   // Create date object for January 1st of the given year
   const newYearsDay = new Date(Date.UTC(year, 0, 1)); // January 1st (month is 0-indexed)
 
@@ -51,9 +53,9 @@ export function getFirstWeekdayAfterNewYearsDay(year: number): Date {
   firstWeekday.setUTCDate(newYearsDay.getUTCDate() + daysToAdd);
 
   return firstWeekday;
-}
+};
 
-export function isDateInAdventSeason(date: Date): boolean {
+export const isDateInAdventSeason = (date: Date): boolean => {
   const month = date.getUTCMonth(); // 0 for January
   const year = date.getUTCFullYear();
 
@@ -84,4 +86,4 @@ export function isDateInAdventSeason(date: Date): boolean {
   );
 
   return normalizedDate >= normalizedStart && normalizedDate <= normalizedEnd;
-}
+};
