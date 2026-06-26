@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: jdx/mise-action@v3
+      - uses: jdx/mise-action@v4
       - name: 'Install playwright dependencies'
         run: bunx playwright install --with-deps
       - name: 'Run tests and calculate coverage'
