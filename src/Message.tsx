@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import type { JSX } from 'react';
 
 import {
   getFirstSundayOfAdvent,
@@ -16,7 +17,7 @@ const getMessages = ({
   isInSeason: boolean;
   firstSundayOfAdvent: Date;
   fallenDate: Date;
-}) => {
+}): { message: string; sub_message: string } => {
   if (hasFallen) {
     return {
       message: 'Yes. RIP Gävlebocken. 🔥',
@@ -37,7 +38,9 @@ const getMessages = ({
   };
 };
 
-const Message = ({ fallenString }: { fallenString?: string } = {}) => {
+const Message = ({
+  fallenString,
+}: { fallenString?: string } = {}): JSX.Element => {
   // If fallenString is provided, use it; otherwise use the environment variable. This is used for testing.
   const dateString = fallenString || import.meta.env.VITE_FALLEN_DATE;
 

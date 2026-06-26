@@ -8,7 +8,8 @@ import App from './App.tsx';
 // oxlint-disable-next-line import/no-unassigned-import
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+// oxlint-disable-next-line typescript/no-non-null-assertion
+createRoot(document.querySelector('#root')!).render(
   <StrictMode>
     <App />
     <SpeedInsights />

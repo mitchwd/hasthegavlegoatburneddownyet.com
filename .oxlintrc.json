@@ -17,8 +17,10 @@
     "correctness": "error",
     "perf": "error",
     "suspicious": "error",
-    // "restriction": "warn",
-    "style": "warn"
+    "restriction": "error",
+    "style": "error",
+    "pedantic": "off",
+    "nursery": "warn"
   },
   "options": {
     "typeAware": true,
@@ -32,19 +34,23 @@
     ".vercel",
     "playwright-report",
     "test-results",
-    "playwright/.cache"
+    "playwright/.cache",
+    "*.d.ts"
   ],
   "overrides": [
     {
       "files": ["**/*.{js,jsx,ts,tsx}"],
       "rules": {
-        "vitest/require-hook": "off",
-        "eslint/no-ternary": "off",
-        "no-magic-numbers": "off",
-        "eslint/sort-imports": "off",
         "constructor-super": "error",
+        "eslint/no-ternary": "off",
+        "eslint/no-undef": "off",
+        "eslint/sort-imports": "off",
         "for-direction": "error",
         "getter-return": "error",
+        "import/no-default-export": "off",
+        "import/no-named-export": "off",
+        "import/prefer-default-export": "error",
+        "no-array-constructor": "error",
         "no-async-promise-executor": "error",
         "no-case-declarations": "error",
         "no-class-assign": "error",
@@ -60,10 +66,10 @@
         "no-dupe-else-if": "error",
         "no-dupe-keys": "error",
         "no-duplicate-case": "error",
-        "no-empty": "error",
         "no-empty-character-class": "error",
         "no-empty-pattern": "error",
         "no-empty-static-block": "error",
+        "no-empty": "error",
         "no-ex-assign": "error",
         "no-extra-boolean-cast": "error",
         "no-fallthrough": "error",
@@ -73,6 +79,7 @@
         "no-invalid-regexp": "error",
         "no-irregular-whitespace": "error",
         "no-loss-of-precision": "error",
+        "no-magic-numbers": "off",
         "no-misleading-character-class": "error",
         "no-new-native-nonconstructor": "error",
         "no-nonoctal-decimal-escape": "error",
@@ -90,22 +97,49 @@
         "no-unsafe-finally": "error",
         "no-unsafe-negation": "error",
         "no-unsafe-optional-chaining": "error",
+        "no-unused-expressions": "error",
         "no-unused-labels": "error",
         "no-unused-private-class-members": "error",
         "no-unused-vars": "error",
         "no-useless-backreference": "error",
         "no-useless-catch": "error",
         "no-useless-escape": "error",
-        "no-with": "error",
-        "require-yield": "error",
-        "use-isnan": "error",
-        "valid-typeof": "error",
         "no-var": "error",
+        "no-with": "error",
         "prefer-const": "error",
         "prefer-rest-params": "error",
         "prefer-spread": "error",
-        "no-array-constructor": "error",
-        "no-unused-expressions": "error",
+        "react/display-name": "error",
+        "react/exhaustive-deps": "warn",
+        "react/jsx-filename-extension": [
+          "error",
+          { "extensions": [".jsx", ".tsx"] }
+        ],
+        "react/jsx-key": "error",
+        "react/jsx-no-comment-textnodes": "error",
+        "react/jsx-no-duplicate-props": "error",
+        "react/jsx-no-literals": "off",
+        "react/jsx-no-target-blank": "off",
+        "react/jsx-no-undef": "error",
+        "react/no-children-prop": "error",
+        "react/no-danger-with-children": "error",
+        "react/no-direct-mutation-state": "error",
+        "react/no-find-dom-node": "error",
+        "react/no-is-mounted": "error",
+        "react/no-render-return-value": "error",
+        "react/no-string-refs": "error",
+        "react/no-unescaped-entities": "error",
+        "react/no-unknown-property": "error",
+        "react/no-unsafe": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/rules-of-hooks": "error",
+        "react/only-export-components": [
+          "warn",
+          {
+            "allowConstantExport": true
+          }
+        ],
+        "require-yield": "error",
         "typescript/ban-ts-comment": "error",
         "typescript/no-duplicate-enum-values": "error",
         "typescript/no-empty-object-type": "error",
@@ -123,31 +157,9 @@
         "typescript/prefer-as-const": "error",
         "typescript/prefer-namespace-keyword": "error",
         "typescript/triple-slash-reference": "error",
-        "react/display-name": "error",
-        "react/jsx-key": "error",
-        "react/jsx-no-comment-textnodes": "error",
-        "react/jsx-no-duplicate-props": "error",
-        "react/jsx-no-target-blank": "off",
-        "react/jsx-no-undef": "error",
-        "react/no-children-prop": "error",
-        "react/no-danger-with-children": "error",
-        "react/no-direct-mutation-state": "error",
-        "react/no-find-dom-node": "error",
-        "react/no-is-mounted": "error",
-        "react/no-render-return-value": "error",
-        "react/no-string-refs": "error",
-        "react/no-unescaped-entities": "error",
-        "react/no-unknown-property": "error",
-        "react/no-unsafe": "off",
-        "react/react-in-jsx-scope": "off",
-        "react/rules-of-hooks": "error",
-        "react/exhaustive-deps": "warn",
-        "react/only-export-components": [
-          "warn",
-          {
-            "allowConstantExport": true
-          }
-        ]
+        "use-isnan": "error",
+        "valid-typeof": "error",
+        "vitest/require-hook": "off"
       },
       "plugins": ["typescript", "react"],
       "env": {
@@ -159,27 +171,27 @@
       // Tests
       "files": ["**/*.spec.{ts,tsx}"],
       "rules": {
-        "vitest/prefer-importing-vitest-globals": "off",
-        "vitest/require-hook": "error",
-        "vitest/prefer-to-be-falsy": "off",
-        "vitest/prefer-to-be-truthy": "off",
-        "vitest/valid-title": [
-          "error",
-          {
-            "allowArguments": true
-          }
-        ],
-        "vitest/no-hooks": "off",
-        "typescript/no-floating-promises": "off",
         "eslint/no-magic-numbers": "off",
-        "vitest/require-test-timeout": "off",
-        "vitest/prefer-expect-assertions": "off",
         "oxc/no-async-await": "off",
+        "typescript/no-floating-promises": "off",
         "vitest/consistent-test-filename": [
           "error",
           {
             "allTestPattern": "__tests__",
             "pattern": ".*\\.spec\\.({ts,tsx})$"
+          }
+        ],
+        "vitest/no-hooks": "off",
+        "vitest/prefer-expect-assertions": "off",
+        "vitest/prefer-importing-vitest-globals": "off",
+        "vitest/prefer-to-be-falsy": "off",
+        "vitest/prefer-to-be-truthy": "off",
+        "vitest/require-hook": "error",
+        "vitest/require-test-timeout": "off",
+        "vitest/valid-title": [
+          "error",
+          {
+            "allowArguments": true
           }
         ]
       }

@@ -1,4 +1,6 @@
-const Footer = () => (
+import type { JSX } from 'react';
+
+const Footer = (): JSX.Element => (
   <footer>
     <div className='fixed bottom-0 left-0 h-8 px-3 pb-1 text-sm font-medium opacity-50 hover:opacity-100'>
       <a
@@ -16,4 +18,5 @@ const Footer = () => (
     </div>
   </footer>
 );
+
 export default Footer;
