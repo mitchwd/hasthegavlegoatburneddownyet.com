@@ -6,6 +6,11 @@ import {
   isDateInAdventSeason,
 } from './helpers';
 
+// Helper function to create UTC date
+const createUTCDate = (year: number, month: number, day: number): Date => {
+  return new Date(Date.UTC(year, month - 1, day, 9, 0, 0)); // 9am UTC
+};
+
 describe('getFirstSundayOfAdvent', () => {
   test('when Christmas is on a Saturday', () => {
     const firstSundayOfAdvent = getFirstSundayOfAdvent(2021);
@@ -163,11 +168,6 @@ describe('getFirstWeekdayAfterNewYear', () => {
 });
 
 describe('isDateInAdventSeason', () => {
-  // Helper function to create UTC date
-  const createUTCDate = (year: number, month: number, day: number): Date => {
-    return new Date(Date.UTC(year, month - 1, day, 9, 0, 0)); // 9am UTC
-  };
-
   test('should return true for First Sunday of Advent', () => {
     expect(isDateInAdventSeason(createUTCDate(2023, 12, 3))).toBe(true);
     expect(isDateInAdventSeason(createUTCDate(2024, 12, 1))).toBe(true);

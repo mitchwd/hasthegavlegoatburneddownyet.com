@@ -15,7 +15,9 @@
     "jest"
   ],
   "categories": {
-    "correctness": "warn"
+    "correctness": "error",
+    "perf": "error",
+    "suspicious": "error"
   },
   "options": {
     "typeAware": true,

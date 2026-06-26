@@ -2,6 +2,7 @@ import gavlebocken from './assets/gavlebocken.webp';
 import Footer from './Footer';
 import Message from './Message';
 
+// oxlint-disable-next-line import/no-unassigned-import
 import './index.css';
 
 export default function App() {
