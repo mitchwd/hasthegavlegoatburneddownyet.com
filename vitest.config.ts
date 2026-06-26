@@ -19,7 +19,7 @@ export default mergeConfig(
         provider: playwright(),
       },
       coverage: {
-        exclude: ['src/Main.tsx', 'coverage/**', 'dist/**'],
+        exclude: ['src/main.tsx', 'coverage/**', 'dist/**'],
         include: ['src/**/*.{ts,tsx}'],
         provider: 'istanbul',
         reportOnFailure: true,

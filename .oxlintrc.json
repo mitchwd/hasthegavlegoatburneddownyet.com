@@ -35,7 +35,8 @@
     "playwright-report",
     "test-results",
     "playwright/.cache",
-    "*.d.ts"
+    "*.d.ts",
+    "src/main.tsx"
   ],
   "overrides": [
     {
