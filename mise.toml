@@ -9,10 +9,10 @@ description = "Run linting and fix any issues"
 hide = true
 run = "bun run lint:fix"
 
-# [tasks.format]
-# description = "Run formatting and fix any issues"
-# hide = true
-# run = "bun run format:fix"
+[tasks.format]
+description = "Run formatting and fix any issues"
+hide = true
+run = "bun run format"
 
 [tasks.tsc]
 description = "Run typecheck and fix any issues"
@@ -20,12 +20,8 @@ hide = true
 run = "bun run tsc"
 
 [tasks.check]
-description = "Run all checks (lint, format, tsc) and fix any issues"
-depends = [
-  'lint',
-  'tsc',
-  #'format'
-]
+description = "Run all checks (format, lint, tsc) and fix any issues"
+depends = ['format', 'lint', 'tsc']
 
 [tasks.dev]
 description = "Run development server"
