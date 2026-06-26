@@ -19,7 +19,7 @@
     "suspicious": "error",
     "restriction": "error",
     "style": "error",
-    "pedantic": "off",
+    // "pedantic": "off",
     "nursery": "warn"
   },
   "options": {
