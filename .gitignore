@@ -3,6 +3,7 @@ build
 dist
 .vercel
 .env*.local
+.vscode/mise-tools
 
 # Playwright
 blob-report/
