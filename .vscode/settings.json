@@ -25,6 +25,6 @@
   "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
   "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "~/.local/share/mise/shims/node"
+    "pwa-node": "${workspaceFolder}/.vscode/mise-tools/node"
   }
 }

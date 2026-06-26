@@ -1,0 +1,39 @@
+[tools]
+node = "25"
+bun = "1"
+
+[tasks]
+[tasks.lint]
+description = "Run linting and fix any issues"
+hide = true
+run = "bun run lint:fix"
+
+# [tasks.format]
+# description = "Run formatting and fix any issues"
+# hide = true
+# run = "bun run format:fix"
+
+[tasks.tsc]
+description = "Run typecheck and fix any issues"
+hide = true
+run = "bun run tsc"
+
+[tasks.check]
+description = "Run all checks (lint, format, tsc) and fix any issues"
+depends = [
+  'lint',
+  'tsc',
+  #'format'
+]
+
+[tasks.dev]
+description = "Run development server"
+run = "bun run dev"
+
+[tasks.build]
+description = "Run build script"
+run = "bun run build"
+
+[tasks.test]
+description = "Run all tests"
+run = "bun run test"

@@ -1,2 +1,2 @@
-npm run tsc
-npm run lint:fix
+bun run tsc
+bun run lint:fix

@@ -6,16 +6,9 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-      - name: Use Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "25.x"
-          cache: "pnpm"
-      - run: pnpm install
-      - run: pnpm run lint
-      - run: pnpm run tsc
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v4
+      - run: bun install
+
+      - run: bun run lint
+      - run: bun run tsc

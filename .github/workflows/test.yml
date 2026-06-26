@@ -10,29 +10,22 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-      - name: Use Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "25.x"
-          cache: "pnpm"
-      - run: pnpm install
-      - name: "Install playwright dependencies"
-        run: pnpx playwright install --with-deps
-      - name: "Run tests and calculate coverage"
-        run: pnpm run coverage
-      - name: "Upload coverage report"
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v4
+      - run: bun install
+      - name: 'Install playwright dependencies'
+        run: bunx playwright install --with-deps
+
+      - name: 'Run tests and calculate coverage'
+        run: bun run coverage
+      - name: 'Upload coverage report'
         ## Always run this step- even if previous step fails, but not on cancelled.
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-report
           path: coverage/
           retention-days: 7
-      - name: "Add coverage PR comment"
+      - name: 'Add coverage PR comment'
         if: ${{ !cancelled() }}
         uses: davelosert/vitest-coverage-report-action@v2
