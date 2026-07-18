@@ -19,7 +19,7 @@ description = "Run typecheck and fix any issues"
 hide = true
 run = "bun run tsc"
 
-[tasks.check]
+[tasks.checks]
 description = "Run all checks (format, lint, tsc) and fix any issues"
 depends = ['format', 'lint', 'tsc']
 
