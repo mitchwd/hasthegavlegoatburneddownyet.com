@@ -23,6 +23,7 @@ describe('message', () => {
 
   describe('before season', () => {
     beforeEach(() => {
+      vi.stubEnv('VITE_FALLEN_DATE', '');
       vi.useFakeTimers();
       vi.setSystemTime(new Date('2025-05-01T00:00:00.000Z'));
     });
@@ -61,6 +62,7 @@ describe('message', () => {
 
   describe('during season', () => {
     beforeEach(() => {
+      vi.stubEnv('VITE_FALLEN_DATE', '');
       vi.useFakeTimers();
       vi.setSystemTime(new Date('2025-12-25T00:00:00.000Z'));
     });
