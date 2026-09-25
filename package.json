@@ -24,26 +24,26 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.12.1",
-    "@playwright/test": "^1.61.1",
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@typescript/native-preview": "^7.0.0-dev.20260707.2",
     "@vitejs/plugin-react": "^6.1.1",
-    "@vitest/browser-playwright": "^4.1.10",
-    "@vitest/coverage-istanbul": "^4.1.10",
+    "@vitest/browser-playwright": "^5.0.1",
+    "@vitest/coverage-istanbul": "^5.0.1",
     "globals": "^17.12.0",
     "husky": "^9.1.7",
     "mockdate": "^3.0.5",
     "oxfmt": "^0.61.0",
     "oxlint": "^1.74.0",
     "oxlint-tsgolint": "^7.0.2001",
-    "playwright": "^1.61.1",
+    "playwright": "^1.63.0",
     "tailwindcss": "^4.3.3",
     "vite": "^8.3.0",
-    "vitest": "^4.1.10",
-    "vitest-browser-react": "^2.2.0"
+    "vitest": "^5.0.1",
+    "vitest-browser-react": "^2.3.0"
   }
 }

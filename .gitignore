@@ -6,10 +6,11 @@ dist
 .env*.local
 mise.*.toml
 .vscode/mise-tools
+.vite-hooks/
 
-# Playwright
 blob-report/
 playwright-report/
 playwright/.cache/
 test-results/
 coverage/
+.vitest/
