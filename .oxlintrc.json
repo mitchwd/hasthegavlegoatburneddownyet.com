@@ -77,7 +77,8 @@
         ],
         "typescript/ban-ts-comment": "error",
         "typescript/no-unsafe-function-type": "error",
-        "vitest/require-hook": "off"
+        "vitest/require-hook": "off",
+        "eslint/one-var": "off"
       },
       "plugins": ["typescript", "react"],
       "env": {
@@ -96,7 +97,7 @@
           "error",
           {
             "allTestPattern": "__tests__",
-            "pattern": ".*\\.spec\\.({ts,tsx})$"
+            "pattern": ".*\\.spec\\.ts$"
           }
         ],
         "vitest/no-hooks": "off",
