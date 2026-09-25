@@ -8,7 +8,7 @@ describe('app', () => {
     render(<App />);
 
     await expect
-      .element(page.getByText('Has the Gävle goat burned down yet?'))
+      .element(page.getByText('Has the Gävle Goat burned down yet?'))
       .toBeInTheDocument();
   });
 });
